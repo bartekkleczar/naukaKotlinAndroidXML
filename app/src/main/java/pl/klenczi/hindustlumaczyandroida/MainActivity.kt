@@ -1,8 +1,11 @@
 package pl.klenczi.hindustlumaczyandroida
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,9 +20,11 @@ class MainActivity : AppCompatActivity() {
         var greetingsFromIndia = findViewById<TextView>(R.id.tvHello)
         var inputField = findViewById<EditText>(R.id.etName)
         var submitButton = findViewById<Button>(R.id.btnSubmit)
+        var offersButton = findViewById<Button>(R.id.btnOffers)
         submitButton.setOnClickListener{
             var enteredName = inputField.text.toString()
             if (enteredName == ""){
+                offersButton.visibility = INVISIBLE
                 greetingsFromIndia.text = ""
                 Toast.makeText(
                     this@MainActivity,
@@ -28,7 +33,14 @@ class MainActivity : AppCompatActivity() {
             }
             else{
             var message = "Greetings from India $enteredName"
-            greetingsFromIndia.text = message}
+            greetingsFromIndia.text = message
+            inputField.text.clear()
+            offersButton.visibility = VISIBLE}
+        }
+
+        offersButton.setOnClickListener{
+            var intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 }
