@@ -21,8 +21,9 @@ class MainActivity : AppCompatActivity() {
         var inputField = findViewById<EditText>(R.id.etName)
         var submitButton = findViewById<Button>(R.id.btnSubmit)
         var offersButton = findViewById<Button>(R.id.btnOffers)
+        var enteredName: String
         submitButton.setOnClickListener{
-            var enteredName = inputField.text.toString()
+            enteredName = inputField.text.toString()
             if (enteredName == ""){
                 offersButton.visibility = INVISIBLE
                 greetingsFromIndia.text = ""
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         offersButton.setOnClickListener{
             var intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("USER", enteredName)
             startActivity(intent)
         }
     }
