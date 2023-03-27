@@ -67,4 +67,9 @@ class MainActivity : AppCompatActivity() {
         Log.i("MYTAG", "MainActivity: onRestart")
     }
 
+    override fun onStop() {
+        super.onStop()
+        Log.i("MYTAG", "MainActivity: onStop")
+    }
+
 }
