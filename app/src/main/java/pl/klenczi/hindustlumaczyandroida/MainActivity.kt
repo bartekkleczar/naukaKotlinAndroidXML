@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         var inputField = findViewById<EditText>(R.id.etName)
         var submitButton = findViewById<Button>(R.id.btnSubmit)
         var offersButton = findViewById<Button>(R.id.btnOffers)
-        var enteredName: String
+        var enteredName = ""
         submitButton.setOnClickListener{
             enteredName = inputField.text.toString()
             if (enteredName == ""){
