@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.Button
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.i("MYTAG", "MainActivity: onCreate")
 
         var greetingsFromIndia = findViewById<TextView>(R.id.tvHello)
         var inputField = findViewById<EditText>(R.id.etName)
@@ -45,4 +47,24 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("MYTAG", "MainActivity: onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("MYTAG", "MainActivity: onResume")
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("MYTAG", "MainActivity: onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("MYTAG", "MainActivity: onRestart")
+    }
+
 }
