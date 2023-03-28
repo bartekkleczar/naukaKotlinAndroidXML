@@ -10,5 +10,8 @@ class MainActivity : AppCompatActivity() {
 
         var car = Car()
         car.start()
+
+        var driver = Driver("Dupa")
+        driver.showDetails()
     }
 }
