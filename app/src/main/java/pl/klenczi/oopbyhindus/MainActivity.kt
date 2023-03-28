@@ -8,9 +8,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var car = Car()
-        car.start()
-
         var driver = Driver("Dupa")
         driver.showDetails()
     }
