@@ -2,14 +2,9 @@ package pl.klenczi.oopbyhindus
 
 import android.util.Log
 
-class Driver(name: String) {
-    lateinit var driverName: String
-
-    init {
-        driverName = name
-    }
+class Driver(var name: String) {
 
     fun showDetails(){
-        Log.i("MYTAG", "Name of the driver is $driverName")
+        Log.i("MYTAG", "Name of the driver is $name")
     }
 }
