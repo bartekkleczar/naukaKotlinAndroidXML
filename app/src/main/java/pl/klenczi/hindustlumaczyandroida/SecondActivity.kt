@@ -9,6 +9,7 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+        Log.i("MYTAG", "SecondActivity: onCreate")
         var userName = intent.getStringExtra("USER")
         var textView = findViewById<TextView>(R.id.tvOffer)
         var message = "$userName, you will get free access to whole content for one month"
@@ -17,30 +18,30 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.i("MYTAG", "MainActivity: onStart")
+        Log.i("MYTAG", "SecondActivity: onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i("MYTAG", "MainActivity: onResume")
+        Log.i("MYTAG", "SecondActivity: onResume")
     }
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("MYTAG", "MainActivity: onDestroy")
+        Log.i("MYTAG", "SecondActivity: onDestroy")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.i("MYTAG", "MainActivity: onRestart")
+        Log.i("MYTAG", "SecondActivity: onRestart")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("MYTAG", "MainActivity: onStop")
+        Log.i("MYTAG", "SecondActivity: onStop")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i("MYTAG", "MainActivity: onPause")
+        Log.i("MYTAG", "SecondActivity: onPause")
     }
 }
