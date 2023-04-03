@@ -2,10 +2,9 @@ package pl.klenczi.oopbyhindus
 
 import android.util.Log
 
-class Car {
-
+open class Car {
     var maxSpeed = 30
-    fun start(){
+    open fun start(){
         Log.i("MYTAG", "Car is starting...")
         Log.i("MYTAG", "Maximum speed $maxSpeed")
     }

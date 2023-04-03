@@ -8,7 +8,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var driver = Driver("Dupa", 37)
-        driver.showDetails()
+        val myCar = MyCar()
+        myCar.maxSpeed = 898
+        myCar.start()
     }
 }
