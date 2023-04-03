@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var driver = Driver("Dupa")
+        var driver = Driver("Dupa", 37)
         driver.showDetails()
     }
 }
