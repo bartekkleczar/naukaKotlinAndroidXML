@@ -3,8 +3,8 @@ package pl.klenczi.oopbyhindus
 import android.util.Log
 
 class Driver(var name: String, credit: Int) {
-    var totalCredit = credit
-    var car = Car()
+    private var totalCredit = credit
+    private var car = Car()
 
     init {
         totalCredit += credit
