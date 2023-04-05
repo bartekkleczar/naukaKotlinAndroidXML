@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Height is empty", Toast.LENGTH_LONG).show()
                 return false}
 
-            else{return true}
+            else -> {return true}
         }
     }
 
