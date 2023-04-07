@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var mP: MediaPlayer? = null
     private lateinit var runnable: Runnable
     private lateinit var handler: Handler
+    private var option = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,21 +23,39 @@ class MainActivity : AppCompatActivity() {
         seekBar = findViewById(R.id.sbClapping)
         handler = Handler(Looper.getMainLooper())
         val play = findViewById<FloatingActionButton>(R.id.fabPlay)
-        val pause = findViewById<FloatingActionButton>(R.id.fabPause)
+        //val pause = findViewById<FloatingActionButton>(R.id.fabPause)
         val stop = findViewById<FloatingActionButton>(R.id.fabStop)
 
-        play.setOnClickListener {
+        /*play.setOnClickListener {
             if(mP == null){
                 mP = MediaPlayer.create(this,  R.raw.applauding)
                 initSeekBar()
             }
 
             mP?.start()
+        }*/
+
+        play.setOnClickListener{
+            when(option){
+                0 -> {
+                    if(mP == null){
+                    mP = MediaPlayer.create(this,  R.raw.applauding)
+                    initSeekBar()
+                }
+                    play.setImageResource(R.drawable.pause)
+                    option = 1
+                    mP?.start()}
+                else -> {
+                    option = 0
+                    mP?.pause()
+                    play.setImageResource(R.drawable.play)
+                }
+            }
         }
 
-        pause.setOnClickListener {
+        /*pause.setOnClickListener {
             mP?.pause()
-        }
+        }*/
 
         stop.setOnClickListener {
             mP?.stop()
