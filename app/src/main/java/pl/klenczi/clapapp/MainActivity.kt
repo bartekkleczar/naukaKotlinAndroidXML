@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.SeekBar
+import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -58,12 +59,21 @@ class MainActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
             }
         })
+        val tvP = findViewById<TextView>(R.id.tvPlayed)
+        val  tvDue = findViewById<TextView>(R.id.tvDue)
         seekBar.max = mP!!.duration
         runnable = Runnable{
             seekBar.progress = mP!!.currentPosition
-            handler.postDelayed(runnable, 1000)
+
+            val playedTime = mP!!.currentPosition/1000
+            tvP.text = "$playedTime sec"
+            val duration = mP!!.duration/1000
+            val dueTime = duration-playedTime
+            tvDue.text = "$dueTime sec"
+
+            handler.postDelayed(runnable, 10)
         }
-        handler.postDelayed(runnable, 1000)
+        handler.postDelayed(runnable, 10)
 
     }
 }
