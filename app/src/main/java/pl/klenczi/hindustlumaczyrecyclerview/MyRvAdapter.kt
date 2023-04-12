@@ -15,12 +15,11 @@ class MyRvAdapter(val fruits: List<Fruit>): RecyclerView.Adapter<MyVHolder>(){
         return MyVHolder(listItem) // zwraca to co chcesz wyswietlic w recyclerView
     }
 
-    override fun onBindViewHolder(holder: MyVHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyVHolder, position: Int) { // tu dawaj to co chcesz wyswietlic
         val fruit = fruits[position]
-        holder.myName.text = fruit.name // tu dawaj to co chcesz wyswietlic
-
         val supplier = fruits[position]
-        holder.mySupplier.text = supplier.supplier
+
+        holder.bind(fruit, supplier)
     }
 
     override fun getItemCount(): Int {
@@ -31,7 +30,13 @@ class MyRvAdapter(val fruits: List<Fruit>): RecyclerView.Adapter<MyVHolder>(){
 }
 
 class MyVHolder(val view: View):RecyclerView.ViewHolder(view){
+    fun bind(fruit: Fruit, supplier: Fruit) {
+
         // nw po co to jest ale ma byc zeby dzialalo - "myTv" uzywasz potem w "onBindViewHolder" do wyswietlania rzeczy
         val myName = view.findViewById<TextView>(R.id.tvName)
+        myName.text = fruit.name
+
         val mySupplier = view.findViewById<TextView>(R.id.tvSupplier)
+        mySupplier.text = fruit.supplier
+    }
 }
