@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyRvAdapter(val fruits: List<String>): RecyclerView.Adapter<MyVHolder>(){
+class MyRvAdapter(val fruits: List<Fruit>): RecyclerView.Adapter<MyVHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVHolder {
         // tego nie tykasz w zasadzie bo po co, wazne ze dziala
@@ -17,7 +17,7 @@ class MyRvAdapter(val fruits: List<String>): RecyclerView.Adapter<MyVHolder>(){
 
     override fun onBindViewHolder(holder: MyVHolder, position: Int) {
         val fruit = fruits[position]
-        holder.myTv.text = fruit // tu dawaj to co chcesz wyswietlic
+        holder.myTv.text = fruit.name // tu dawaj to co chcesz wyswietlic
     }
 
     override fun getItemCount(): Int {
