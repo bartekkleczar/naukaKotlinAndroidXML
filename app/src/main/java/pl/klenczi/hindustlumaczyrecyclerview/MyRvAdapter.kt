@@ -16,7 +16,7 @@ class MyRvAdapter: RecyclerView.Adapter<MyVHolder>(){
 
     override fun onBindViewHolder(holder: MyVHolder, position: Int) {
         // tu dawaj to co chcesz wyswietlic
-        holder.myTv.text = "Hello from india"
+        holder.myTv.text = "Hello from india $position"
     }
 
     override fun getItemCount(): Int {
