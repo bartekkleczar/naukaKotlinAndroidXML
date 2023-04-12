@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-    val fruits = listOf<String>("Mango", "Apple", "Banana", "Guava", "Lemon", "Pear", "Orange")
+    val fruits = listOf<Fruit>(
+        Fruit("Mango", "Joe"), Fruit("Apple", "Frank"), Fruit("Banana", "Tom"), Fruit("Guava", "Joe"), Fruit("Lemon", "Alex"), Fruit("Pear", "Joe"), Fruit("Orange", "Alex"))
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
