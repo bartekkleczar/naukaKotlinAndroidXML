@@ -6,6 +6,7 @@ plugins {
 android {
     namespace 'pl.klenczi.hindustlumaczyrecyclerview'
     compileSdk 33
+    compileSdkPreview "UpsideDownCake"
 
     defaultConfig {
         applicationId "pl.klenczi.hindustlumaczyrecyclerview"
