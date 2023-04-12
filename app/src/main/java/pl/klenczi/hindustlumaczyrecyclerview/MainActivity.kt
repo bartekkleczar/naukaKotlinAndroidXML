@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+    val fruits = listOf<String>("Mango", "Apple", "Banana", "Guava", "Lemon", "Pear", "Orange")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,6 +15,6 @@ class MainActivity : AppCompatActivity() {
         val rv = findViewById<RecyclerView>(R.id.myRV)
         rv.setBackgroundColor(Color.YELLOW)
         rv.layoutManager = LinearLayoutManager(this)
-        rv.adapter = MyRvAdapter()
+        rv.adapter = MyRvAdapter(fruits)
     }
 }
