@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyRvAdapter: RecyclerView.Adapter<MyVHolder>(){
+class MyRvAdapter(val fruits: List<String>): RecyclerView.Adapter<MyVHolder>(){
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVHolder {
         // tego nie tykasz w zasadzie bo po co, wazne ze dziala
         val layoutInflater = LayoutInflater.from(parent.context) // rozwiewanie layoutu, tak jak w przypadku bindingu nie mam pojecia po co ale tak trzeba zeby dzialalo
@@ -15,13 +16,13 @@ class MyRvAdapter: RecyclerView.Adapter<MyVHolder>(){
     }
 
     override fun onBindViewHolder(holder: MyVHolder, position: Int) {
-        // tu dawaj to co chcesz wyswietlic
-        holder.myTv.text = "Hello from india $position"
+        val fruit = fruits[position]
+        holder.myTv.text = fruit // tu dawaj to co chcesz wyswietlic
     }
 
     override fun getItemCount(): Int {
         // tu ustalasz ilosc elementow
-        return 5
+        return fruits.size
     }
 
 }
