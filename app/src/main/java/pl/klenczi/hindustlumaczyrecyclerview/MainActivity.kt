@@ -14,5 +14,6 @@ class MainActivity : AppCompatActivity() {
         val rv = findViewById<RecyclerView>(R.id.myRV)
         rv.setBackgroundColor(Color.YELLOW)
         rv.layoutManager = LinearLayoutManager(this)
+        rv.adapter = MyRvAdapter()
     }
 }
