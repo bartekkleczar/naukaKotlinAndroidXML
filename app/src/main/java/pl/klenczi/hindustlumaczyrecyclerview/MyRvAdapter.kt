@@ -7,7 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class MyRvAdapter(val fruits: List<Fruit>): RecyclerView.Adapter<MyVHolder>(){
+class MyRvAdapter(private val fruits: List<Fruit>, private val clickListener:(Fruit) -> Unit): RecyclerView.Adapter<MyVHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVHolder {
         // tego nie tykasz w zasadzie bo po co, wazne ze dziala
@@ -20,7 +20,7 @@ class MyRvAdapter(val fruits: List<Fruit>): RecyclerView.Adapter<MyVHolder>(){
         val fruit = fruits[position]
         val supplier = fruits[position]
 
-        holder.bind(fruit, supplier)
+        holder.bind(fruit, clickListener)
     }
 
     override fun getItemCount(): Int {
@@ -31,7 +31,7 @@ class MyRvAdapter(val fruits: List<Fruit>): RecyclerView.Adapter<MyVHolder>(){
 }
 
 class MyVHolder(val view: View):RecyclerView.ViewHolder(view){
-    fun bind(fruit: Fruit, supplier: Fruit) {
+    fun bind(fruit: Fruit, clickListener:(Fruit) -> Unit) {
 
         // nw po co to jest ale ma byc zeby dzialalo - "myTv" uzywasz potem w "onBindViewHolder" do wyswietlania rzeczy
         val myName = view.findViewById<TextView>(R.id.tvName)
@@ -41,7 +41,7 @@ class MyVHolder(val view: View):RecyclerView.ViewHolder(view){
         mySupplier.text = fruit.supplier
 
         view.setOnClickListener{
-            Toast.makeText(view.context, "Selected Fruit: ${fruit.name}", Toast.LENGTH_SHORT ).show()
+            clickListener(fruit)
         }
     }
 }
