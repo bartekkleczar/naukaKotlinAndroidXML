@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">taskManager</string>
+    <string name="add_task">Dodaj Zadanie</string>
+    <string name="delete_task">Usuń Zadanie</string>
+</resources>
