@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.core.app.NotificationCompat
 
@@ -30,15 +32,27 @@ class MainActivity : AppCompatActivity() {
             }
             notificationManager.createNotificationChannel(channel)
 
+            //przekierowanie do aplikacji gdy klikniesz w powiadomienie
+            val pendingIntent = PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                PendingIntent.FLAG_IMMUTABLE
+            )
+
             // Tworzenie powiadomienia
             val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground) //ikona powiadomienia
                 .setContentTitle(title)
                 .setContentText(message)
+                .setContentIntent(pendingIntent) //przekierowanie do aplikacji gdy klikniesz w powiadomienie
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
                 .setOngoing(true) // ustawia powiadomienie jako trwałe, nie do usunięcia przez użytkownika
 
+            // nw co to robi, jest zbedne w dzialaniu aplikaci
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
             // Wyświetlenie powiadomienia
             notificationManager.notify(0, notificationBuilder.build())
