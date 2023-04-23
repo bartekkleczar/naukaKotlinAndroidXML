@@ -3,10 +3,13 @@ package pl.klenczi.taskmanager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class MyRvAdapter(private val tasks: List<Task>): RecyclerView.Adapter<MyVHolder>(){
+class MyRvAdapter(private val tasks: MutableList<Task>): RecyclerView.Adapter<MyVHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyVHolder {
         // tego nie tykasz w zasadzie bo po co, wazne ze dziala
@@ -36,6 +39,10 @@ class MyVHolder(val view: View):RecyclerView.ViewHolder(view){
         val myName = view.findViewById<TextView>(R.id.tvTaskName)
         myName.text = task.name
 
-
+        val btn = view.findViewById<Button>(R.id.btnDone)
+        btn.setOnClickListener {
+                task.isDone = true
+                Toast.makeText(view.context, "${task.name} is checked and ${task.isDone}", Toast.LENGTH_SHORT).show()
+        }
     }
 }
