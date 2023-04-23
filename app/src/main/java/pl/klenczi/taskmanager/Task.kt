@@ -1,7 +1,7 @@
 package pl.klenczi.taskmanager
 
 class Task(var name: String, var isDone: Boolean = false){
-    private fun check(status: Boolean): Boolean {
+    fun check(status: Boolean): Boolean {
         when(status){
             true -> {
                 return true
