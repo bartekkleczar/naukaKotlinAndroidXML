@@ -25,6 +25,15 @@ class MainActivity : AppCompatActivity() {
             if(etInput.text.toString() != ""){
                 tasks.add(element = Task(etInput.text.toString()))
                 etInput.setText("")
+
+                val iterator = tasks.iterator()
+                while (iterator.hasNext()) {
+                    val task = iterator.next()
+                    if (task.isDone) {
+                        iterator.remove()
+                    }
+                }
+
                 rv.adapter = MyRvAdapter(tasks)
             }
             else{
@@ -32,8 +41,5 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, toast, Toast.LENGTH_SHORT).show()
             }
         }
-
-
-
     }
 }
