@@ -43,6 +43,7 @@ class MyVHolder(val view: View):RecyclerView.ViewHolder(view){
         btn.setOnClickListener {
                 task.isDone = true
                 Toast.makeText(view.context, "${task.name} is checked and ${task.isDone}", Toast.LENGTH_SHORT).show()
+            btn.visibility = View.INVISIBLE
         }
     }
 }
