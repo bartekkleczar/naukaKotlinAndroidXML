@@ -2,7 +2,9 @@ package pl.klenczi.apitutorial
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.gson.Gson
 import pl.klenczi.apitutorial.databinding.ActivityMainBinding
+import java.io.InputStreamReader
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
 
@@ -23,7 +25,11 @@ class MainActivity : AppCompatActivity() {
 
             if(connection.responseCode == 200){
                 val inputSystem = connection.inputStream
-                println(inputSystem.toString())
+                val inputStreamReader = InputStreamReader(inputSystem, "UTF-8")
+                val request = Gson().fromJson( inputStreamReader, Request::class.java)
+                updateUI(request)
+                inputStreamReader.close()
+                inputSystem.close()
             }
             else{
                 binding.baseCurrency.text = "Failed Connection"
