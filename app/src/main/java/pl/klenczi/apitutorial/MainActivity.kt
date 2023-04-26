@@ -1,7 +1,9 @@
 package pl.klenczi.apitutorial
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.google.gson.Gson
 import pl.klenczi.apitutorial.databinding.ActivityMainBinding
 import java.io.InputStreamReader
@@ -16,6 +18,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root) // Dodanie bindingu - zmiana content view
 
         FetchCurrencyData().start()
+
+        val btn = findViewById<Button>(R.id.btnSecondActivity)
+        btn.setOnClickListener{
+            val intent = Intent(this, DrugieApi::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun FetchCurrencyData(): Thread {
