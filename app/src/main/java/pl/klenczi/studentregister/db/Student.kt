@@ -1,4 +1,4 @@
 package pl.klenczi.studentregister.db
 
-class Student {
+data class Student() {
 }
