@@ -1,4 +1,3 @@
 package pl.klenczi.studentregister.db
 
-data class Student() {
-}
+data class Student()
