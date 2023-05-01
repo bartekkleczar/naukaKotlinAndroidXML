@@ -42,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         clearBtn.setOnClickListener {
             clearInput()
         }
+
+        initRecyclerView()
     }
 
     private fun saveStudentData(){
@@ -60,5 +62,10 @@ class MainActivity : AppCompatActivity() {
         studentRecyclerView.layoutManager = LinearLayoutManager(this)
         adapter = RecyclerViewAdapter()
         studentRecyclerView.adapter = adapter
+        displayStudentsList()
+    }
+
+    private fun displayStudentsList(){
+        viewModel.students.observe(this, {adapter.setList(it); adapter.notifyDataSetChanged()})
     }
 }
