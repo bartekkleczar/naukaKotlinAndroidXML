@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import pl.klenczi.studentregister.R
 import pl.klenczi.studentregister.db.Student
 import pl.klenczi.studentregister.db.StudentDatabase
@@ -16,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var clearBtn: Button
 
     private lateinit var viewModel: StudentViewModel
+    private lateinit var studentRecyclerView: RecyclerView
+    private lateinit var adapter: RecyclerViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         emailET = findViewById(R.id.etEmail)
         saveBtn = findViewById(R.id.btnSave)
         clearBtn = findViewById(R.id.btnClear)
+        studentRecyclerView = findViewById(R.id.rvStudent)
 
         val dao = StudentDatabase.getInstance(application).studentDao()
         val factory = StudentViewModelFactory(dao)
@@ -49,5 +54,11 @@ class MainActivity : AppCompatActivity() {
     private fun clearInput(){
         nameET.setText("")
         emailET.setText("")
+    }
+
+    private fun initRecyclerView(){
+        studentRecyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = RecyclerViewAdapter()
+        studentRecyclerView.adapter = adapter
     }
 }
