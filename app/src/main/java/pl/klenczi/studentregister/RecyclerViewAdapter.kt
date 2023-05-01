@@ -3,11 +3,12 @@ package pl.klenczi.studentregister
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ExpandableListView.OnChildClickListener
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pl.klenczi.studentregister.db.Student
 
-class RecyclerViewAdapter(): RecyclerView.Adapter<ViewHolder>() {
+class RecyclerViewAdapter(private val clickListener: (Student)-> Unit): RecyclerView.Adapter<ViewHolder>() {
     private val studentList = ArrayList<Student>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,7 +22,7 @@ class RecyclerViewAdapter(): RecyclerView.Adapter<ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(studentList[position])
+        holder.bind(studentList[position], clickListener)
     }
 
     fun setList(students: List<Student>){
@@ -31,11 +32,14 @@ class RecyclerViewAdapter(): RecyclerView.Adapter<ViewHolder>() {
 }
 
 class ViewHolder(private val view: View): RecyclerView.ViewHolder(view){
-    fun bind(student: Student){
+    fun bind(student: Student, clickListener: (Student)-> Unit){
         val nameTV = view.findViewById<TextView>(R.id.tvName)
         val emailTV = view.findViewById<TextView>(R.id.tvEmail)
 
         nameTV.text = student.name
         emailTV.text = student.email
+        view.setOnClickListener{
+            clickListener(student)
+        }
     }
 }
