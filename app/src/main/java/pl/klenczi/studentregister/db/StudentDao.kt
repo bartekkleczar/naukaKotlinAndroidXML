@@ -7,9 +7,9 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 
-//Ten kod zawiera interfejs DAO (Data Access Object) dla bazy danych, która przechowuje informacje o studentach.
-@Dao // adnotacja oznaczająca, że to jest interfejs DAO.
-interface StudentDao { // deklaracja interfejsu DAO.
+//Ten kod zawiera interfejs DAO (Data Access Object) dla bazy danych, która przechowuje informacje o studentach
+@Dao // adnotacja oznaczająca, że to jest interfejs DAO
+interface StudentDao { // deklaracja interfejsu DAO
     @Insert // metoda w interfejsie DAO do wstawiania danych w bazie danych
     suspend fun insertStudent(student: Student) // stworzenie metody 'suspend' -> korutynowej
 
