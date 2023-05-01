@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: StudentViewModel
     private lateinit var studentRecyclerView: RecyclerView
     private lateinit var adapter: RecyclerViewAdapter
+    private var isListItemClicked = false
+
+    private lateinit var selectedStudent: Student
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,6 +57,17 @@ class MainActivity : AppCompatActivity() {
         viewModel.insertStudent(student)
     }
 
+    private fun updateStudentData(){
+        viewModel.updateStudent(
+            Student(
+                selectedStudent.id,
+                nameET.text.toString(),
+                emailET.text.toString()))
+        selectedStudent = null
+        saveBtn.text = "Safe"
+        clearBtn.text = "Clear"
+        isListItemClicked = false
+    }
     private fun clearInput(){
         nameET.setText("")
         emailET.setText("")
@@ -71,6 +85,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun listItemClicked(student: Student){
-        Toast.makeText(this, "Student name is ${student.name}", Toast.LENGTH_SHORT).show()
+        selectedStudent = student
+        saveBtn.text = "Update"
+        clearBtn.text = "Delete"
+        isListItemClicked = true
     }
 }
