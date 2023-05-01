@@ -109,5 +109,7 @@ class MainActivity : AppCompatActivity() {
         saveBtn.text = "Update"
         clearBtn.text = "Delete"
         isListItemClicked = true
+        nameET.setText(selectedStudent.name)
+        emailET.setText(selectedStudent.email)
     }
 }
