@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateStudentData(){
-        viewModel.deleteStudent(
+        viewModel.updateStudent(
             Student(
                 selectedStudent.id,
                 nameET.text.toString(),
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun deleteStudentData(){
-        viewModel.updateStudent(
+        viewModel.deleteStudent(
             Student(
                 selectedStudent.id,
                 nameET.text.toString(),
