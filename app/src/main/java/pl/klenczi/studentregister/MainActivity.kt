@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -60,12 +61,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView(){
         studentRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = RecyclerViewAdapter()
+        adapter = RecyclerViewAdapter{ selectedItem: Student -> listItemClicked(selectedItem) }
         studentRecyclerView.adapter = adapter
         displayStudentsList()
     }
 
     private fun displayStudentsList(){
         viewModel.students.observe(this, {adapter.setList(it); adapter.notifyDataSetChanged()})
+    }
+
+    private fun listItemClicked(student: Student){
+        Toast.makeText(this, "Student name is ${student.name}", Toast.LENGTH_SHORT).show()
     }
 }
