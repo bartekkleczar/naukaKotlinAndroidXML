@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
                 selectedStudent.id,
                 nameET.text.toString(),
                 emailET.text.toString()))
-        selectedStudent = null
         saveBtn.text = "Safe"
         clearBtn.text = "Clear"
         isListItemClicked = false
@@ -85,7 +84,6 @@ class MainActivity : AppCompatActivity() {
                 selectedStudent.id,
                 nameET.text.toString(),
                 emailET.text.toString()))
-        selectedStudent = null
         saveBtn.text = "Safe"
         clearBtn.text = "Clear"
         isListItemClicked = false
