@@ -5,12 +5,13 @@ plugins {
 }
 
 android {
-    namespace 'pl.klenczi.studentregister'
+    namespace 'pl.klenczi.hindusstudentregister'
     compileSdk 33
 
     defaultConfig {
-        applicationId "pl.klenczi.studentregister"
+        applicationId "pl.hindusstudentregister"
         minSdk 26
+
         targetSdk 33
         versionCode 1
         versionName "1.0"
