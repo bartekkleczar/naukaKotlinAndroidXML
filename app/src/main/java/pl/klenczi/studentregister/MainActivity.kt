@@ -39,12 +39,22 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory).get(StudentViewModel::class.java)
 
         saveBtn.setOnClickListener {
-            saveStudentData()
-            clearInput()
+            if(isListItemClicked){
+                updateStudentData()
+                clearInput()
+            }else {
+                saveStudentData()
+                clearInput()
+            }
         }
 
         clearBtn.setOnClickListener {
-            clearInput()
+            if(isListItemClicked){
+                deleteStudentData()
+                clearInput()
+            }else {
+                clearInput()
+            }
         }
 
         initRecyclerView()
@@ -58,6 +68,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateStudentData(){
+        viewModel.deleteStudent(
+            Student(
+                selectedStudent.id,
+                nameET.text.toString(),
+                emailET.text.toString()))
+        selectedStudent = null
+        saveBtn.text = "Safe"
+        clearBtn.text = "Clear"
+        isListItemClicked = false
+    }
+
+    private fun deleteStudentData(){
         viewModel.updateStudent(
             Student(
                 selectedStudent.id,
