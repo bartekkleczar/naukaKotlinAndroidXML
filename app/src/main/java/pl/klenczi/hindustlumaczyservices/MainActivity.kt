@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import pl.klenczi.hindustlumaczyservices.MyBackgroundService.Companion.TAG
 import pl.klenczi.hindustlumaczyservices.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +17,12 @@ class MainActivity : AppCompatActivity() {
         val serviceIntent = Intent(this, MyBackgroundService::class.java)
         binding.apply{
             btnStart.setOnClickListener{
-                Log.i("MainActivity", "Service starting")
+                Log.i(TAG, "Service starting")
                 startService(serviceIntent)
             }
 
             btnStop.setOnClickListener{
-                Log.i("MainActivity", "Service stopping")
+                Log.i(TAG, "Service stopping")
                 stopService(serviceIntent)
             }
         }
