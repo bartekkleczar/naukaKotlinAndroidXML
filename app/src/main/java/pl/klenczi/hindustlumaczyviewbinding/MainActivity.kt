@@ -15,10 +15,12 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.btnSubmit.setOnClickListener {
-            val name = binding.etName.text.toString()
-            binding.tvMessage.text = "Hello $name"
-            binding.etName.setText("")
+        binding.apply {
+            btnSubmit.setOnClickListener {
+                val name = etName.text.toString()
+                tvMessage.text = "Hello $name"
+                etName.setText("")
+            }
         }
     }
 }
