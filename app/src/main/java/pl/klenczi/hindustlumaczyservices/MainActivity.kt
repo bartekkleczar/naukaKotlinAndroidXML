@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import pl.klenczi.hindustlumaczyservices.MyBackgroundService.Companion.MARKS
+import pl.klenczi.hindustlumaczyservices.MyBackgroundService.Companion.NAME
 import pl.klenczi.hindustlumaczyservices.MyBackgroundService.Companion.TAG
 import pl.klenczi.hindustlumaczyservices.databinding.ActivityMainBinding
 
@@ -15,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val serviceIntent = Intent(this, MyBackgroundService::class.java)
+        serviceIntent.putExtra(NAME, "Dupa")
+        serviceIntent.putExtra(MARKS, 78)
         binding.apply{
             btnStart.setOnClickListener{
                 Log.i(TAG, "Service starting")
