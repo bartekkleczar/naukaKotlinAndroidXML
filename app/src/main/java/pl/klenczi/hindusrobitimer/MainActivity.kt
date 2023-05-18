@@ -11,4 +11,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+    private fun start(){
+
+    }
+
+    private fun stop(){
+
+    }
+
+    private fun reset(){
+
+    }
+
 }
