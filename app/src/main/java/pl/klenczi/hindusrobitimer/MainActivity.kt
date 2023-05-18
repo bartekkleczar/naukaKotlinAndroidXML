@@ -11,6 +11,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.apply{
+            btnStart.setOnClickListener{
+                startOrStop()
+            }
+            btnReset.setOnClickListener{
+                reset()
+            }
+        }
     }
 
     private fun startOrStop(){
