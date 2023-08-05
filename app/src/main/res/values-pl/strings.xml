@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">taskManager</string>
+    <string name="task_add">Dodaj Zadanie</string>
+    <string name="task_done">Gotowe</string>
+    <string name="task_add_empty_error">Pole wprowadzania nie moze być puste</string>
+</resources>
