@@ -1,0 +1,11 @@
+1. dodajesz do 'activity_main.xml' rv
+
+2. dodajesz plik 'list_item' z przykladem obiektu ktory bedziemy powtarzac
+
+3. do 'build.gradle (:app)' dodajesz 'compileSdkPreview "UpsideDownCake"' w 'android{}'
+
+4. kopiujesz wszystko z 'MyRvAdapter.kt' i wklejasz w swoim projekcie, potem zmieniasz to co trzeba
+
+5. kopiujesz wszystko z 'MainActivity.kt' i wklejasz w projekt, potem zmieniasz to co trzeba
+
+6. i chyba tyle
